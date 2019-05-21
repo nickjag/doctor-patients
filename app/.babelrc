@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "transform-es2015-modules-commonjs",
+    "@babel/plugin-transform-destructuring",
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "env": {
+    "test": {
+      "presets": ["@babel/preset-env","@babel/preset-react"]
+    }
+  }
+}

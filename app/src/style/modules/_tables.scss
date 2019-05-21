@@ -1,0 +1,66 @@
+.table {
+  display: table;
+  width: 100%;
+  
+  .td {
+    position: relative;
+    display: table-cell;
+    background: #fff;
+    text-align: left ;
+    font-size: $font_size_normal;
+    padding: 12px;
+    border-bottom: solid 2px #fff;
+  }
+  .tr {
+    display: table-row;
+    padding: 0 20px 0 0;
+  }
+  .tr-head {
+    display: table-row;
+
+    .td {
+      background: transparent;
+      font-weight: 600;
+      border-bottom: none;
+    }
+  }
+  &.selectable {
+    .tr {
+      .td {
+        cursor: pointer;
+      }
+      &:hover {
+        .td {
+          background: $primary_light;
+        }
+      }
+    }
+  }
+}
+
+
+// .tr {
+//   &.fadeIn {
+//       animation-name: fadeInRow;
+//       animation-duration: .3s;
+//       animation-timing-function: ease;
+//   }
+//   &:hover {
+//       .td.button {
+//           span {
+//               opacity: 1;
+//           }
+//       }
+//   }
+// }
+
+// @keyframes fadeInRow {
+//   from {
+//       opacity:0;
+//       transform: translateY(5px);
+//   }
+//   to {
+//       opacity:1;
+//       transform: translateY(0);
+//   }
+// }

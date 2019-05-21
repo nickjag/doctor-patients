@@ -1,0 +1,97 @@
+form {
+  .msg {
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    margin: 0 15px 0 0;
+    font-size: 13px;
+    line-height: 40px;
+
+    &.error {
+      color: $primary_red;
+    }
+    &.success {
+      color: $primary_blue;
+    }
+  }
+  .full {
+    flex-basis: 100%;
+    @include clearfix;
+    
+    .btn,
+    .msg {
+      float: right;
+    }
+  }
+  &.grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &.center {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+
+    .full {
+      max-width: 320px;
+      margin: auto;
+    }
+  }
+}
+.field-group {
+  display: inline-block;
+  margin: 10px 0 20px 0;
+  color: #fff;
+  text-align: left;
+
+  .grid & {
+    flex-basis: 50%;
+    padding: 0 10px;
+  }
+  .center & {
+    margin: 10px auto 20px 0;
+    max-width: 320px;
+    width: 100%;
+  }
+  .label {
+    display: block;
+    margin: 0 0 5px 0;
+    color: $primary_copy_light;
+    font-size: 12px;
+  }
+  input {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    padding: 9px 16px;
+    text-align: left;
+    background: transparent;
+    font-size: 14px;
+    line-height: 18px;
+    border: solid 1px $primary_medium;
+    @include transition(border .2s ease);
+
+    &:hover, &:active {
+      border: solid 1px $primary_medium_contrast;
+    }
+  }
+  &.error input {
+    border: solid 1px $primary_medium_contrast;
+  }
+}
+
+form.data-only .field-group {
+  input {
+    border: none;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid .field-group,
+  form .full {
+    flex-basis: 100%;
+    max-width: 320px;
+    margin: 10px auto 20px auto;
+  }
+}

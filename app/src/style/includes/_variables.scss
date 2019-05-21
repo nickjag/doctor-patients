@@ -1,0 +1,32 @@
+
+// Colors
+
+$primary_white_contrast: #edf1f5;
+$primary_light: #f4f5f7;
+$primary_light_contrast: #e0e6ed;
+$primary_medium: #e3e4e6;
+$primary_medium_contrast: #c4c7cd;
+$primary_dark: #323241;
+$primary_copy: rgba(45, 58, 79, 0.9);
+$primary_copy_light: rgba(45, 58, 79, 0.5);
+$primary_copy_contrast: rgba(45, 58, 79, 1);
+
+$primary_blue: #2aa3dd;
+$primary_dark_blue: #424c5e;
+$primary_red: #ee7362;
+
+// Fonts
+
+$font_size_normal: 14px;
+$font_size_heading: 16px;
+$line_height_normal: 28px;
+
+// Sizes
+
+$main_radius: 3px;
+
+// Transitions
+
+$cubic: cubic-bezier(0.18, 1, 0.21, 1);
+$cubic_bounce: cubic-bezier(0.7, -0.26, 0.5, 1.16);
+$cubic_slide: cubic-bezier(0.18, 1, 0.76, 0.99);

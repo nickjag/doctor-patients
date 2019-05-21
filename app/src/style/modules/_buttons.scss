@@ -1,0 +1,28 @@
+.btn,
+a.bn {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 10px 14px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background: $primary_light;
+  @include radius($main_radius);
+  @include noselect;
+  @include transition_double(background .2s ease, color .2s ease);
+
+  &:hover {
+    background: $primary_light_contrast;
+  }
+
+  &.dark {
+    background: $primary_copy;
+    color: #fff;
+
+    &:hover {
+      background: $primary_copy_contrast;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.wrapper {
+  @include flexbox;
+  @include flex-direction(column);
+  position: relative;
+  width: 100%;
+  min-width: 375px;
+  height: auto;
+  min-height: 100%;
+  margin: auto;
+  overflow: hidden;
+  background: $primary_light;
+}
+article {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 780px;
+  min-height: 500px;
+  margin: 30px auto 0 auto;
+  padding: 0;
+}
+section {
+  display: block;
+  border-bottom: solid 1px $primary_white_contrast;
+  padding: 20px 20px 40px 20px;
+  background: #ffffff;
+  text-align: left;
+
+  &.heading {
+    text-align: center;
+    padding: 20px;
+
+    .back {
+      float: left;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+
+      svg {
+        width: 20px;
+        height: 20px;
+
+        .icon-fill {
+          fill: $primary_copy_light;
+        }
+      }
+      &:hover {
+        svg .icon-fill {
+          fill: $primary_copy;
+        }
+      }
+    }
+  }
+}
+.vcenter {
+  top: 50%;
+  position: relative;
+  margin: auto;
+  transform: translateY(-50%);
+}

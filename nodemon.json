@@ -1,0 +1,13 @@
+{
+	"watch": [
+    "index.js",
+    "common/*",
+    "config/*",
+		"controllers/*",
+    "includes/*",
+    "models/*",
+    "routes/*",
+    "services/*"
+	],
+	"ext": "js ejs"
+}

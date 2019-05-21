@@ -1,0 +1,109 @@
+@mixin transition($animation) {
+	transition: $animation;
+	-o-transition: $animation;
+	-ms-transition: $animation;
+	-moz-transition: $animation;
+	-webkit-transition: $animation;
+}
+@mixin transition_double($animation, $animation_2) {
+	transition: $animation, $animation_2;
+	-o-transition: $animation, $animation_2;
+	-ms-transition: $animation, $animation_2;
+	-moz-transition: $animation, $animation_2;
+	-webkit-transition: $animation, $animation_2;
+}
+@mixin radius($topleft, $topright: $topleft, $bottomright: $topleft, $bottomleft: $topleft) {
+  -moz-border-radius-topleft:     $topleft;
+  -moz-border-radius-topright:    $topright;
+  -moz-border-radius-bottomright: $bottomright;
+  -moz-border-radius-bottomleft:  $bottomleft;
+  -webkit-border-radius:          $topleft $topright $bottomright $bottomleft;
+  border-radius:                  $topleft $topright $bottomright $bottomleft;
+}
+@mixin vertical_align {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin transform($exp) {
+  -webkit-transform: $exp;
+  -moz-transform: $exp;
+  -ms-transform: $exp;
+  -o-transform: $exp;
+  transform: $exp;
+}
+@mixin placeholder($color) {
+	::-webkit-input-placeholder { /* Chrome */
+		color: $color;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+		color: $color;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+		color: $color;
+		opacity: 1;
+	}
+	:-moz-placeholder { /* Firefox 4 - 18 */
+		color: $color;
+		opacity: 1;
+	}
+}
+@mixin noselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex($values) {
+-webkit-box-flex: $values;
+   -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+        flex: $values;
+}
+@mixin flex-direction($direction) {
+-webkit-flex-direction: $direction;
+   -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+        flex-direction: $direction;
+}
+@mixin flex-flow($flow) {
+-webkit-flex-flow: $flow;
+   -moz-flex-flow: $flow;
+    -ms-flex-flow: $flow;
+        flex-flow: $flow;
+}
+@mixin flex-grow($grow) {
+-webkit-flex-grow: $grow;
+   -moz-flex-grow: $grow;
+    -ms-flex-grow: $grow;
+        flex-grow: $grow;
+}
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+     -moz-justify-content: $justify;
+            -ms-flex-pack: $justify;
+          justify-content: $justify;
+}

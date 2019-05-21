@@ -1,0 +1,41 @@
+@import "../../style/_dependencies.scss";
+
+.header {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: #ffffff;
+  border-bottom: solid 1px $primary_light_contrast;
+
+  .contain {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    max-width: 1024px;
+  }
+  .logo {
+    float: left;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+  }
+  .acct {
+    float: right;
+
+    p {
+      display: inline-block;
+      margin: 0 15px 0 0;
+    }
+    .nav-link {
+      display: inline-block;
+      margin: 0 15px 0 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
