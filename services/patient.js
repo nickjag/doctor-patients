@@ -12,7 +12,7 @@ class PatientService {
     return patient || false;
   }
 
-  static async findAll(page = 1, query = null, size = 2) {
+  static async findAll(page = 1, query = null, size = 5) {
     const start = Math.max(0, size * (page - 1));
 
     if (query) {
@@ -77,7 +77,7 @@ class PatientService {
   static async searchAndMapResults(col, parts) {
     const queries = parts.map(part => ({
       [col]: {
-        $regex: `(\\s+${part}|^${part})`,
+        $regex: `(${part})`,
         $options: 'i',
       },
     }));

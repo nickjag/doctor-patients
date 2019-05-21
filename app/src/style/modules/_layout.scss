@@ -16,7 +16,7 @@ article {
   width: 100%;
   max-width: 780px;
   min-height: 500px;
-  margin: 30px auto 0 auto;
+  margin: 30px auto;
   padding: 0;
 }
 section {
@@ -50,6 +50,9 @@ section {
         }
       }
     }
+  }
+  &.center {
+    text-align: center;
   }
 }
 .vcenter {

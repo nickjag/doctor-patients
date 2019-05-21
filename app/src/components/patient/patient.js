@@ -56,10 +56,7 @@ class Patient extends Component {
     return this.props.updatePatient(id, formValues);
   }
 
-  renderBackButton(editable) {
-    if (editable) {
-      return null;
-    }
+  renderBackButton() {
     return (
       <button
         className="back"
@@ -75,7 +72,6 @@ class Patient extends Component {
     const { handleSubmit, error, isAuth, patient, userType } = this.props;
 
     // change behavior based on userType
-
     const editable = userType === userTypes.PATIENT;
     const dataOnly = !editable ? 'data-only' : '';
 
@@ -88,7 +84,7 @@ class Patient extends Component {
     return (
       <React.Fragment>
         <section className="heading">
-          {this.renderBackButton()}
+          {!editable ? this.renderBackButton(editable) : null}
           <h1>{`Patient: ${firstName} ${lastName}`}</h1>
         </section>
         <section>
@@ -206,8 +202,9 @@ function accountSelector(patient) {
 function mapStateToProps(state) {
   return {
     isAuth: state.auth.isAuth,
-    patient: state.patients.patient,
+    userType: state.auth.userType,
     id: state.auth.id,
+    patient: state.patients.patient,
     initialValues: accountSelector(state.patients.patient),
   };
 }

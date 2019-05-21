@@ -15,6 +15,7 @@ import {
   FETCH_PATIENTS_REQUEST,
   FETCH_PATIENTS_SUCCESS,
   FETCH_PATIENTS_ERROR,
+  FETCH_PATIENTS_RESET,
   UPDATE_PATIENT_REQUEST,
   UPDATE_PATIENT_SUCCESS,
   UPDATE_PATIENT_ERROR,
@@ -86,18 +87,25 @@ export const logoutUser = () => dispatch => {
 
 // all patients
 
-export const fetchPatients = filters => dispatch => {
+export const fetchPatients = (page, query = null) => dispatch => {
   dispatch({ type: FETCH_PATIENTS_REQUEST });
 
   return apiWithAuth({
     method: 'get',
     url: `${API_URL}/patients`,
-    params: filters,
+    params: {
+      page,
+      query,
+    },
   })
     .then(response => {
       dispatch({
         type: FETCH_PATIENTS_SUCCESS,
-        payload: response.data,
+        payload: {
+          ...response.data,
+          page,
+          query,
+        },
       });
     })
     .catch(error => {
@@ -107,6 +115,10 @@ export const fetchPatients = filters => dispatch => {
       });
     });
 };
+
+export const resetPatients = () => ({
+  type: FETCH_PATIENTS_RESET,
+});
 
 // single patient
 

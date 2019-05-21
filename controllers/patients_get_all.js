@@ -5,14 +5,14 @@ const { mapUserPatientAllForResponse } = require('../includes/utils');
 
 module.exports = async (req, res, next) => {
   const urlParts = url.parse(req.url, true);
-  const { page, search } = urlParts.query;
+  const { page, query } = urlParts.query;
 
   const pageNum = page || 1;
 
   let userPatients;
 
   try {
-    userPatients = await PatientService.findAll(pageNum, search);
+    userPatients = await PatientService.findAll(pageNum, query);
   } catch (err) {
     nodeErr.stop(err, { req });
     return next(err);

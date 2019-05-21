@@ -18,7 +18,7 @@ const InputField = props => {
   let allClasses = fieldClass;
   allClasses += hasError ? ' error' : '';
   allClasses += disabled ? ' disabled' : '';
-  console.log('check disabled', disabled);
+
   return (
     <fieldset className={allClasses}>
       {label && <div className="label">{label}</div>}

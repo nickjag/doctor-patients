@@ -39,3 +39,9 @@
     }
   }
 }
+
+@media (max-width: 650px) {
+  .header .acct p {
+    display: none;
+  }
+}

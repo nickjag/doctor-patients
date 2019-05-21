@@ -7,7 +7,7 @@
     display: table-cell;
     background: #fff;
     text-align: left ;
-    font-size: $font_size_normal;
+    font-size: 13px;
     padding: 12px;
     border-bottom: solid 2px #fff;
   }
@@ -37,30 +37,3 @@
     }
   }
 }
-
-
-// .tr {
-//   &.fadeIn {
-//       animation-name: fadeInRow;
-//       animation-duration: .3s;
-//       animation-timing-function: ease;
-//   }
-//   &:hover {
-//       .td.button {
-//           span {
-//               opacity: 1;
-//           }
-//       }
-//   }
-// }
-
-// @keyframes fadeInRow {
-//   from {
-//       opacity:0;
-//       transform: translateY(5px);
-//   }
-//   to {
-//       opacity:1;
-//       transform: translateY(0);
-//   }
-// }
