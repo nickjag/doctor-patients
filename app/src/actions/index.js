@@ -95,7 +95,7 @@ export const fetchPatients = (page, query = null) => dispatch => {
     url: `${API_URL}/patients`,
     params: {
       page,
-      query,
+      ...(query ? { query } : {}),
     },
   })
     .then(response => {

@@ -2,7 +2,6 @@ import { mapKeys } from 'lodash';
 
 import {
   RESET_ALL,
-  FETCH_PATIENTS_REQUEST,
   FETCH_PATIENTS_SUCCESS,
   FETCH_PATIENTS_ERROR,
   FETCH_PATIENTS_RESET,

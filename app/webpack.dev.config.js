@@ -22,7 +22,6 @@ module.exports = {
     port: 3000,
     proxy: {
       '/api': 'http://localhost:5000',
-      '/assets': 'http://localhost:5000',
     },
   },
   watch: true,

@@ -10,15 +10,30 @@ const sharedPassword = '12345';
 const userType = ['doctor', 'patient'];
 const data = [];
 
+const logs = { doctor: null, patient: null };
+
 for (let i = 0; i < rounds; i += 1) {
+  const randUserType = userType[Math.round(Math.random())];
+  const randUsername = sanitizeString(faker.internet.userName(), matchUsername);
+
   const record = {
     password: sharedPassword,
-    username: sanitizeString(faker.internet.userName(), matchUsername),
-    user_type: userType[Math.round(Math.random())],
+    username: randUsername,
+    user_type: randUserType,
   };
+
+  if (!logs[randUserType]) {
+    logs[randUserType] = {
+      username: randUsername,
+      password: sharedPassword,
+    };
+  }
 
   data.push(record);
 }
+
+console.log('Sample Data');
+console.log(JSON.stringify(logs, null, 2));
 
 class UsersSeeder extends Seeder {
   async shouldRun() {

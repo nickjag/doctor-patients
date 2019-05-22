@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { SubmissionError } from 'redux-form';
-import * as urls from '../constants/urls';
 
 // error checker: auth
 
@@ -84,33 +82,3 @@ export const returnGeneralError = error =>
   error.response.data.error_message != ''
     ? error.response.data.error_message
     : false;
-
-// prep error report for alert system
-
-export const prepErrorReport = error => ({
-  label: error.config.label,
-  url: error.config.url,
-  time: error.config.responseTime,
-  err: JSON.stringify(error),
-});
-
-// report error through alert system
-
-export const reportError = ({ label, url, time, err }) => {
-  const data = {
-    name: label,
-    url,
-    time,
-    state: localStorage.getItem('mhState'),
-    raw: err,
-  };
-
-  return axios({
-    method: 'post',
-    // url: `${urls.REPORT_ERROR}`,
-    data,
-    withCredentials: true,
-  })
-    .then(response => data)
-    .catch(error => ({ ...data, errorSending: true }));
-};

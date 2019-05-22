@@ -28,7 +28,7 @@ a:hover {
   color: $primary_blue;
   text-decoration: underline;
 }
-@include placeholder(#cccccc);
+@include placeholder($primary_copy_light);
 h1, h2, h3, h4, p {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;

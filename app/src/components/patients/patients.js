@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PatientRow from './patient_row';
+import PatientsTable from './patients_table';
 import PatientSearch from './patient_search';
 
 import * as actions from '../../actions';
 import * as urls from '../../constants/urls';
 import { DOCTOR } from '../../constants/user_types';
-import './patients.scss';
 
 class Patients extends Component {
   constructor(props) {
@@ -28,8 +27,8 @@ class Patients extends Component {
   }
 
   handleLoadMore() {
-    console.log('check me', this.props.patientsPage);
-    this.fetchPatients(this.props.patientsPage + 1, this.props.patientsQuery);
+    const nextPage = this.props.patientsPage + 1;
+    this.fetchPatients(nextPage, this.props.patientsQuery);
   }
 
   handleSearch(query) {
@@ -39,34 +38,6 @@ class Patients extends Component {
 
   fetchPatients(page, query = null) {
     this.props.fetchPatients(page, query);
-  }
-
-  renderPatients(patientsIds, patientsById) {
-    return (
-      <div className="table selectable">
-        <div className="tr-head">
-          <div className="td" />
-          <div className="td">Name</div>
-          <div className="td">Email</div>
-          <div className="td">Username</div>
-          <div className="td">City</div>
-        </div>
-        {patientsIds.map((patientId, i) => (
-          <PatientRow
-            key={patientsById[patientId].id}
-            index={i}
-            {...patientsById[patientId]}
-            onClickPatient={this.handleClickPatient}
-          />
-        ))}
-      </div>
-    );
-  }
-
-  static renderEmpty() {
-    return (
-      <div className="empty">No results were found with that criteria.</div>
-    );
   }
 
   render() {
@@ -96,9 +67,17 @@ class Patients extends Component {
           />
         </section>
         <section>
-          {hasResults
-            ? this.renderPatients(patientsIds, patientsById)
-            : this.constructor.renderEmpty()}
+          {hasResults ? (
+            <PatientsTable
+              patientsIds={patientsIds}
+              patientsById={patientsById}
+              handleClickPatient={this.handleClickPatient}
+            />
+          ) : (
+            <div className="empty">
+              No patients were found with that criteria.
+            </div>
+          )}
         </section>
         <section className="center heading">
           {!patientsMax && (

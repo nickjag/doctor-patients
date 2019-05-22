@@ -11,7 +11,7 @@ class PatientSearch extends Component {
       query: '',
     };
 
-    this.fetchSearchResults = debounce(this.fetchSearchResults, 200);
+    this.fetchSearchResults = debounce(this.fetchSearchResults, 250);
     this.clearQuery = this.clearQuery.bind(this);
   }
 
@@ -58,7 +58,7 @@ class PatientSearch extends Component {
             onChange={e => this.onInputChange(e.target.value)}
             type="text"
             className="field-input"
-            placeholder="Search by name, email"
+            placeholder="Search by name or email..."
           />
           {this.state.query && this.renderCancel()}
         </fieldset>
